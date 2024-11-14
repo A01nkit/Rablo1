@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/A01nkit/Rablo1/issues"
   },
-  "homepage": "https://github.com/A01nkit/Rablo1#readme"
+  "homepage": "https://github.com/A01nkit/Rablo1#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1"
+  }
 }
