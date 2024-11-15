@@ -15,7 +15,7 @@ app.use(express.static("public"))//to store resources on server
 app.use(cookieParser()) 
 
 //Routes import
-import books from "./routes/books.routes.js"
+import books from "./routes/books.routes.js" 
 
 //Routes declarration
 app.use("api/vi/books", books)
