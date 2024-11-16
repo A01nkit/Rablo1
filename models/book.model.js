@@ -1,10 +1,14 @@
 import mongoose, {Schema} from "mongoose";
 
 const bookSchema = new Schema({
+    bookId:{
+        type: String,
+        required: true,
+        unique: true
+    },
     title: {
         type: String,
         required: true,
-        unique: true,
         lowercase: true,
     },
     edition: {
