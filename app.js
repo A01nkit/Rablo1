@@ -16,9 +16,11 @@ app.use(cookieParser())
 
 //Routes import
 import books from "./routes/books.routes.js"
+import authors from "./routes/author.routes.js"
 
 //Routes declarration
 app.use("api/v1/books", books)
+app.use("api/v1/authors", authors)
 
 
 
