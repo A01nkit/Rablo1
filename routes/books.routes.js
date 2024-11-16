@@ -1,16 +1,23 @@
 import {Router} from "express"
+import { 
+    getBook, 
+    updateBook,
+    deleteBook,
+    getBooks,
+    createBook
+} from "../controllers/books.controllers"
+
 
 const router = Router()
 
 router.route("/:id")
-.get()//Retrieve a book by ID
-.put()//Update book details.
-.delete()//Remove a book.
-
+.get(getBook)//Retrieve a book by ID
+.put(updateBook)//Update book details.
+.delete(deleteBook)//Remove a book.
 
 router.route("")
-.get()//Retrieve a book by ID.
-.post()//Remove a book.
+.get(getBooks)//Retrieve all books.
+.post(createBook)//Add a new book.
 
 
 
