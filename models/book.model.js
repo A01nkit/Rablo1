@@ -22,6 +22,10 @@ const bookSchema = new Schema({
     description: {
         type: String,
     },
+    bookCover: {
+        type: String,   //Cloudinary or AWS S3 bucket url 
+    }
+    /*,
     author: {
         type: Schema.Types.ObjectId,
         ref: "Author"
@@ -30,10 +34,7 @@ const bookSchema = new Schema({
         type: String,   //Cloudinary or AWS S3 bucket url
         required: true
     },
-    bookCover: {
-        type: String,   //Cloudinary or AWS S3 bucket url
-        required: true  
-    }
+    */
 },
 {
     timestamps: true

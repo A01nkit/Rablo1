@@ -5,7 +5,7 @@ import {
     creaateAuthor,
     deleteAuthor,
     updateAuthor
-} from "../controllers/author.controllers";    
+} from "../controllers/author.controllers.js";    
 
  const router = Router()
 
