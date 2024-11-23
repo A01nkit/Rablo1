@@ -1,14 +1,19 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+
+
+
+
+
+
+
 export const getUser = asyncHandler( async (req, res) => {
     const userid = req.params['id']
-    const existedUser = await User.findOne({
-        $or: [{userid}]
-    })
-
+    const existedUser = await User.findOne({userId: userid})
+    console.log(typeof existedUser);
     if(!existedUser) {
         throw new ApiError(409, "User do not exist. hence, no operation can be done")
     }
@@ -20,7 +25,7 @@ export const getUser = asyncHandler( async (req, res) => {
 
 export const getUsers = asyncHandler( async (req, res) => {
     const users = await User.find({})
-
+    console.log(typeof users);
     if(!users) {
         throw new ApiError(409, "No user available")
     }
@@ -32,7 +37,8 @@ export const getUsers = asyncHandler( async (req, res) => {
 
 export const createUser = asyncHandler( async (req, res) => {
     //Getting user details and validating
-    const {userid, firstname, secondname} = req.body
+    const {userid, firstname, secondname} = req.body// req and res are objects
+    
     if (
         [userid, firstname, secondname].some((field) => 
         field?.trim() === "")
@@ -41,18 +47,16 @@ export const createUser = asyncHandler( async (req, res) => {
     }
 
     //Check if user existed
-    const existedUser= await User.findOne({
-        $or: [{userid}]
-    })
+    const existedUser= await User.findOne({userId: userid})
     if(existedUser) {
         throw new ApiError(409, `user with userid: ${userid} exist`)
     }
 
     //Create user object- creating entry call in db
     const user = await User.create({
-        userid,
-        firstname,
-        secondname
+        userId: userid,
+        firstName: firstname,
+        secondName: secondname
     })
 
     const createdUser = await User.findById(user._id)
@@ -70,9 +74,8 @@ export const createUser = asyncHandler( async (req, res) => {
 
 export const deleteUser = asyncHandler( async (req, res) => {
     const userid = req.params['id']
-    const existedUser = await User.findOne({
-        $or: [{userid}]
-    })
+    const existedUser = await User.findOne({userId: userid})
+    
     //If User do not exist
     if(!existedUser) {
         throw new ApiError(409, "User do not exist. hence, no operation can be done")
@@ -96,7 +99,7 @@ export const updateUser = asyncHandler( async (req, res) => {
     
 })
 
-export const addPicturesPicture = asyncHandler( async (req, res) => {
+export const addPicture = asyncHandler( async (req, res) => {
     
 })
 

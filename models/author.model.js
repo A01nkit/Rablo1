@@ -1,21 +1,21 @@
 import mongoose, {Schema} from "mongoose";
-
+ 
 const authorSchema = new Schema({
     authorId: {
         type: String,
         required: true,
         unique: true
     },
-    author: {
+    authorName: {
         type: String,
         required: true
     },
-    assets: [
+    /*assets: [
         {
             type: Schema.Types.ObjectId,
             ref: "Book"
         }
-    ]
+    ]*/
 },
 {
     timestamps: true

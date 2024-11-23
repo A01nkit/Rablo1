@@ -5,7 +5,7 @@ import {
     deleteUser,
     getUsers,
     createUser,
-    addPictures
+    addPicture
 } from "../controllers/user.controllers.js"
 import { upload } from "../middleware/multer.middleware.js"
 
@@ -13,7 +13,7 @@ import { upload } from "../middleware/multer.middleware.js"
 const router = Router()
 
 router.route("/upload-profile-picture/:id")
-.post(upload(), addPictures)
+.post(upload.single(), addPicture)
 
 router.route("/:id")
 .get(getUser)                           //Retrieve a user by ID
@@ -23,3 +23,6 @@ router.route("/:id")
 router.route("")
 .get(getUsers)          //Retrieve all users.
 .post(createUser)       //Create a user.
+
+
+export default router

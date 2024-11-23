@@ -2,12 +2,12 @@ import { Router } from "express";
 import { 
     getAuthor,
     getAuthors,
-    creaateAuthor,
+    createAuthor,
     deleteAuthor,
     updateAuthor
 } from "../controllers/author.controllers.js";    
 
- const router = Router()
+const router = Router()
 
 router.route("/:id")
 .get(getAuthor)//Retrieve a author by ID
@@ -16,7 +16,7 @@ router.route("/:id")
 
 router.route("")
 .get(getAuthors)//Retrieve all authors.
-.post(creaateAuthor)//Add a new author.
+.post(createAuthor)//Add a new author.
 
 
 
