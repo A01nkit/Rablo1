@@ -18,11 +18,13 @@ app.use(express.static("public"))//to store resources on server
 import books from "./routes/book.routes.js"
 import authors from "./routes/author.routes.js"
 import users from "./routes/user.routes.js"
+import loans from "./routes/loan.routes.js"
 
 //Routes declarration
 app.use("/api/v1/books", books)
 app.use("/api/v1/authors", authors)
 app.use("/api/v1/users", users)
+app.use("/api/v1/loans", loans)
 
 
 

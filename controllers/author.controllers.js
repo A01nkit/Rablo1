@@ -3,7 +3,8 @@ import { Author } from "../models/author.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
  
-   
+  
+
 export const getAuthor = asyncHandler( async (req, res) => {
     //fetching id from url
     const authorid = req.params['id']
